@@ -10,7 +10,7 @@ std::vector<unsigned int> indices, moonIndices;
 
 // OpenGL Buffer and Texture IDs
 // -----------------------------
-unsigned int VBO, VAO, EBO, normalVBO, uvVBO, textureID;
+unsigned int VBO, VAO, EBO, normalVBO, uvVBO, textureID, normalMap;
 unsigned int moonVBO, moonVAO, moonEBO, moonNormalVBO, moonTextureID;
 unsigned int skyboxVAO, skyboxVBO, skyboxEBO, cubemapTexture;
 unsigned int skyboxShaderProgram;
@@ -41,6 +41,11 @@ int main()
     glEnable(GL_DEPTH_TEST);
 
     textureID = loadTexture("resources/earthmap.png");
+	// Normal Map with weak effect || Normal Map with strong effect
+    // (uncomment one of them)
+	// ------------------------------------------------------------
+	normalMap = loadTexture("resources/EarthNormal.png");
+	// normalMap = loadTexture("resources/Earth_Normal.png");
 
     // Render Loop
     // -----------
@@ -152,6 +157,11 @@ void drawEarth(unsigned int shaderProgram, glm::mat4 view, glm::mat4 projection)
     glBindTexture(GL_TEXTURE_2D, textureID);
     unsigned int texLoc = glGetUniformLocation(shaderProgram, "texture1");
     glUniform1i(texLoc, 0);
+
+	glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, normalMap);
+	unsigned int normalMapLoc = glGetUniformLocation(shaderProgram, "normalMap");
+	glUniform1i(normalMapLoc, 1);
 
     // Draw Earth
     // ----------
