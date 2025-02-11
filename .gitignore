@@ -1,0 +1,13 @@
+# Ignore VS and VS Code data
+.vs/
+.vscode/
+
+*.sln
+*.vcxproj
+*.filters
+*.user
+
+final/
+
+# Ignore videos
+resources/*.mp4
