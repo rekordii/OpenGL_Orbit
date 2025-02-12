@@ -11,3 +11,6 @@ final/
 
 # Ignore videos
 resources/*.mp4
+
+# Ignore text files
+*.txt
