@@ -41,11 +41,7 @@ int main()
     glEnable(GL_DEPTH_TEST);
 
     textureID = loadTexture("resources/earthmap.png");
-	// Normal Map with weak effect || Normal Map with strong effect
-    // (uncomment one of them)
-	// ------------------------------------------------------------
-	normalMap = loadTexture("resources/EarthNormal.png");
-	// normalMap = loadTexture("resources/Earth_Normal.png");
+	normalMap = loadTexture("resources/Earth_Normal.png");
 
     // Render Loop
     // -----------
