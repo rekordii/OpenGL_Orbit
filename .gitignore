@@ -8,6 +8,7 @@
 *.user
 
 final/
+x64/Debug/
 
 # Ignore videos
 resources/*.mp4
